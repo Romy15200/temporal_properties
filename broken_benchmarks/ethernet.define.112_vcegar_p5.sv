@@ -98,7 +98,7 @@ property lemma_2; ($past(CS, 4) & $past(CS, 3) & $past(CS, 2) & (cntr >= 3)) |->
 property lemma_3; @(posedge clk) disable iff (cntr >= 3) (in0_cycle4 == 2) && (in0_cycle3 == 1) && (in0_cycle2 == 1) && $past(send_plr0, 2) |-> frame_ready0; endproperty
 property lemma_4; (cntr >= 3 & $past(send_plr0, 3) & $past(in0, 3) == 1 & $past(in0, 2) == 1 & (in0_cycle4 == 2)) |-> ##0 frame_ready0; endproperty
  
-assert property(lemma_1 and lemma_2 and lemma_3 and lemma_4 and prop); # inconclusive, was 1-inductive before
+assert property(lemma_1 and lemma_2 and lemma_3 and lemma_4 and prop); // inconclusive, was 1-inductive before
 
 
 
